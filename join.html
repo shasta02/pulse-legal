@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join me on Pulse</title>
+<meta property="og:title" content="Join me on Pulse">
+<meta property="og:description" content="See when friends are free nearby. Beacons disappear on their own.">
+<meta property="og:image" content="https://shasta02.github.io/pulse-legal/icon.png">
+<meta property="og:site_name" content="Pulse">
+<meta name="apple-mobile-web-app-title" content="Pulse">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .center { text-align: center; padding-top: 24px; }
+  .icon { width: 96px; height: 96px; border-radius: 22px; }
+  .button { display: inline-block; margin: 20px 0 8px; padding: 14px 28px; border-radius: 14px;
+            background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; }
+</style>
+</head>
+<body>
+<main class="center">
+  <img class="icon" src="icon.png" alt="">
+  <h1>You're invited to Pulse</h1>
+  <p class="muted">See when friends are free nearby. Beacons disappear on their own.</p>
+  <a id="open" class="button" href="#">Open in Pulse</a>
+  <p id="missing" class="muted" hidden>Don't have Pulse yet? It's coming to the App Store soon. Once it's installed, tap your invite link again and you'll be connected.</p>
+</main>
+<script>
+  // Invite links look like /join?t=TOKEN (or /join?c=CODE for older friend-code links).
+  var q = new URLSearchParams(location.search);
+  var t = (q.get("t") || "").toUpperCase().replace(/[^0-9A-Z]/g, "");
+  var c = (q.get("c") || "").toUpperCase().replace(/[^0-9A-Z]/g, "");
+  var target = /^[2-9A-HJKMNP-TV-Z]{12}$/.test(t) ? "pulse://join/" + t
+             : /^[2-9A-HJKMNP-TV-Z]{8}$/.test(c) ? "pulse://add/" + c : null;
+  var open = document.getElementById("open");
+  if (target) {
+    open.href = target;
+    location.href = target;
+  } else {
+    open.hidden = true;
+  }
+  setTimeout(function () { document.getElementById("missing").hidden = false; }, 1500);
+</script>
+</body>
+</html>
