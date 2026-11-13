@@ -15,12 +15,13 @@
 
 <h2>What we collect</h2>
 <ul>
-  <li><strong>Your email address</strong>, to send you sign-in codes. Friends never see it.</li>
+  <li><strong>Your email address</strong>, to send you sign-in codes. Friends never see it. If you use Sign in with Apple, we get the email Apple gives us (which can be a private relay address) and, the first time, your name.</li>
   <li><strong>Your profile:</strong> the name and avatar color you choose, and your friend code.</li>
   <li><strong>Your friends and circles:</strong> who you're friends with, pending requests, and the circles you make. Circles are private to you; people aren't told which circles they're in.</li>
   <li><strong>Beacons you light:</strong> the activity, an optional note, the neighborhood, a coarse area (about 1 km across), the times, who it's for, and its look.</li>
   <li><strong>Joins and chat:</strong> who said they're coming, messages in a beacon's chat, and, only if you tap "I'm here", your precise location at that moment.</li>
   <li><strong>Reports and blocks</strong> you make, including a copy of a reported message or beacon note.</li>
+  <li><strong>A notification token</strong> for each device you sign in on, if you allow notifications, so we can tell you when a friend lights a beacon, joins yours, or messages you. Signing out removes it.</li>
   <li><strong>Flare+ status.</strong> Apple handles payment. We never see your card or Apple Account details.</li>
 </ul>
 
@@ -52,7 +53,7 @@
 <ul>
   <li><strong>Supabase</strong>: hosts the database and sign-in.</li>
   <li><strong>Brevo</strong>: sends sign-in code emails.</li>
-  <li><strong>Apple</strong>: App Store purchases and on-device features.</li>
+  <li><strong>Apple</strong>: Sign in with Apple, push notifications, App Store purchases, and place search when you pick a spot (your search text goes to Apple Maps).</li>
 </ul>
 <p>We may disclose information if required by law, or to protect someone's safety.</p>
 
